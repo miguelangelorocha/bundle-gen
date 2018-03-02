@@ -4,14 +4,14 @@
 
 ## Technolgies
 
-create-react-app with a Node Express Backend
+create-react-app (react / redux / redux-saga / material-ui) with a Node Express Backend
 
 ## Architecture:
 
 - 'CloudFunctions' that run rules and filters using 'pipes';
 - The rules and filters are also 'CloudFunctions';
 - The execution order and location are defined in the metadata of each call;
-- This approach allows to distribute the execution of the rules and filters as microservices enabling high availability, scaling, versioning and easy change of business rules
+- This approach allows to distribute the execution of the rules and filters as microservices enabling high availability, scaling, versioning and easy change of business rules.
 
 ## Usage
 
@@ -97,25 +97,32 @@ npm run dev
 
 ### Building schema
 
-    Node - Nodes represents Products
+    Node - Nodes represent Products
         Properties: 
+            _id (string)
             name (string) See [R4]
-            description (String)
-            image_url (String)
             type (string) See [R4]
             price: (double) See [R4]
             connections (Connection List)
 
-    Connection - Connections represents addintional price/discount
+    Connection - Connections represent additional price/discount
         Properties:
             destination_id (string)
             value (double)
 
-    FilterRule - Filter for a non-valid bundle
+    GenerationRules - Rules to generate product bundles
         Properties:
+            code (String)
             name (String)
             description (String)
-            url (string)
+            url (string)    
+
+    FilterRules - Filters for non-valid bundles
+        Properties:
+            code (String)
+            name (String)
+            description (String)
+            url (string)        
 
 ### Strategy
 
@@ -129,7 +136,8 @@ npm run dev
 
     When requesting plans
 
-        [S6] - Get json with available bundles            
+        [S6] - Get json with available bundles  
+                  
 ### Requested Filter Rules
 
     [F1] - See [R3] - Filter Unique bb/tv/ll
