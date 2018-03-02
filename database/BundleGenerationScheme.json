@@ -1,0 +1,112 @@
+{
+    "bundleGenerationScheme":{
+        "nodes": [
+            {
+                "_id": "1",
+                "name": "Broadband1",
+                "type": "bb",
+                "price": 40,
+                "connections": [
+                    {"destination_id": "5", "value": -40.0},
+                    {"destination_id": "3", "value":   0.0}
+                ]
+            },
+            {
+                "_id": "2",
+                "name": "Broadband2",
+                "type": "bb",
+                "price": 60.0,
+                "connections": [
+                    {"destination_id": "3", "value": -10.0},
+                    {"destination_id": "4", "value": -10.0},
+                    {"destination_id": "5", "value": -40.0},
+                    {"destination_id": "6", "value": -20.0}
+                ]
+            },
+            {
+                "_id": "3",
+                "name": "AddonBB",
+                "type": "addon",
+                "price": 10.0
+            },
+            {
+                "_id": "4",
+                "name": "TV1",
+                "type": "tv",
+                "price": 50.0,
+                "connections": [
+                    {"destination_id": "5", "value": -10.0},
+                    {"destination_id": "7", "value":  35.0}
+                ]
+            },
+            {
+                "_id": "5",
+                "name": "Landline",
+                "type": "ll",
+                "price": 35.0
+            },
+            {
+                "_id": "6",
+                "name": "TV2",
+                "type": "tv",
+                "price": 120.0,
+                "connections": [
+                    {"destination_id": "5", "value": -30.0},
+                    {"destination_id": "7", "value":  15.0}
+                ]
+            },
+            {
+                "_id": "7",
+                "name": "AddonTV",
+                "type": "addon"
+            }
+        ],
+        "generation_rules": [
+            {
+                "code": "S1",
+                "name": "Make all possible combinations",
+                "description" : "Make all possible combinations",
+                "url": "http://localhost:5000/api/v1/make-all-possible-combinations"
+            },
+            {
+                "code": "S2",
+                "name": "Execute all filter rules",
+                "description" : "Execute all filter rules",
+                "url": "http://localhost:5000/api/v1/execute-all-filter-rules"
+            },
+            {
+                "code": "S3",
+                "name": "Sum nodes prices",
+                "description" : "Sum nodes prices",
+                "url": "http://localhost:5000/api/v1/sum-nodes-prices"
+            },
+            {
+                "code": "S4",
+                "name": "Sum connections values",
+                "description" : "Sum connections values",
+                "url": "http://localhost:5000/api/v1/sum-connections-values"
+            }, 
+            {
+                "code": "S5",
+                "name": "Record all broadband",
+                "description" : "Record all broadband in json format",
+                "url": "http://localhost:5000/api/v1/record-all-broadband"
+            }
+        ],    
+        "filter_rules": [
+            {
+                "code": "F1",
+                "name": "Unique bb, tv and ll types",
+                "description" : "Bundles can have several addons, but cannot have more than one broadband (type: 'bb'), tv (type: 'tv') or landline (type:'ll')",
+                "url": "http://localhost:5000/api/v1/filter-unique-bb-tv-and-ll-types"
+            },
+            {
+                "code": "F2",
+                "name": "Filter duplicated bundles",
+                "description" : "Filter duplicated bundles. Ex.: Path with circular reference",
+                "url": "http://localhost:5000/api/v1/filter-duplicated-bundles"
+            }            
+        ]
+    },
+    "bundles": []
+}

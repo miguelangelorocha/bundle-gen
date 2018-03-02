@@ -1,0 +1,44 @@
+{
+  "name": "bundle-gen",
+  "version": "0.1.0",
+  "description": "BundleGen",
+  "author": {
+    "name": "Miguelângelo Faria Rocha",
+    "email": "miguelangelo.rocha@gmail.com"
+  },
+  "license": "MIT",
+  "scripts": {
+    "client": "cd client && npm start",
+    "server": "nodemon server.js",
+    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
+    "test": "nyc mocha --timeout=3000"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "fs": "0.0.1-security",
+    "request-promise-native": "^1.0.5"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "concurrently": "^3.5.0",
+    "mocha": "^5.0.1",
+    "nyc": "^11.4.1",
+    "request": "^2.83.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/esausilva/example-create-react-app-express.git"
+  },
+  "bugs": {
+    "url": "https://github.com/esausilva/example-create-react-app-express/issues"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "database/AllBroadband.json",
+      "client/*"
+    ],
+    "delay": "2500"
+  }
+}

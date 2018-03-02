@@ -1,0 +1,26 @@
+{
+    "bundles": [
+        {
+        "price": 1,
+        "bundles": [
+            {
+            "_id": "1",
+            "name": "Broadband1",
+            "type": "bb",
+            "price": 40
+            }
+        ]
+        },
+        {
+            "price": 1,
+            "bundles": [
+            {
+                "_id": "1",
+                "name": "Broadband1",
+                "type": "bb",
+                "price": 40
+            }
+            ]
+        }    
+    ]
+}

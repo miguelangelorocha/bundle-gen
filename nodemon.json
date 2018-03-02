@@ -1,0 +1,8 @@
+{
+    "ignore": [
+        "client",
+        "database/AllBroadband.json",
+        "docs",
+        "test"
+    ]
+}
